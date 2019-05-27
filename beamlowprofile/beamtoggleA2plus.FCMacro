@@ -1,0 +1,13 @@
+# Toggles switch between pressed and unpressed state
+import a2p_solversystem
+sliderobj = FreeCAD.activeDocument().getObject("planeCoincident_001") # change if necessary
+capplateobj = FreeCAD.activeDocument().getObject("planeCoincident_002") # change if necessary
+
+if str(sliderobj.offset) == '0 mm': # move from origin
+    sliderobj.offset = '-4 mm'
+    capplateobj.offset = '-1.13 mm'
+else: # reset to origin
+    sliderobj.offset = '0 mm'
+    capplateobj.offset = '0 mm'
+
+a2p_solversystem.solveConstraints(FreeCAD.activeDocument())
